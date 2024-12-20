@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Inside Out: A Exploration of Personality</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<style>
+  <title>Inside Out: A Exploration of Personality</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
     body {
       font-family: 'Aria', sans-serif;
       margin: 0;
@@ -31,6 +32,7 @@
     .w3-bar a {
       font-size: 14px;
     }
+
     #home {
       position: relative;
       height: 100vh;
@@ -95,34 +97,34 @@
     .play-button i {
       color: #fff;
     }
-    
+
     #personalities {
-    background-image: url('img/Group\ 1.png'); 
-    background-size: cover;
-    background-position: center;
-    
-  }
-  
+      background-image: url('img/Group\ 1.png');
+      background-size: cover;
+      background-position: center;
+
+    }
+
     .personality-row {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between; 
-      gap: 20px; 
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .personality-card {
-      flex: 0 0 calc(25% - 20px); 
-      max-width: calc(25% - 20px); 
+      flex: 0 0 calc(25% - 20px);
+      max-width: calc(25% - 20px);
     }
-  
+
     .w3-card-4 {
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease-in-out;
-      position: relative; 
+      position: relative;
     }
-  
+
     .w3-card-4:hover {
       transform: scale(1.05);
     }
@@ -137,81 +139,82 @@
       border: 3px solid white;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
-   
-#optimist {
-    background-image: url(img/yel.png);
-    background-size: cover;
-    background-position: center;
-    font-family: 'Helvetica Neue', sans-serif;
-    color: white;
-    padding: 64px 20px;
-}
 
-.card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; 
-    width: 95%; 
-    margin-left: auto;
-    margin-right: auto;
-}
+    #optimist {
+      background-image: url(img/yel.png);
+      background-size: cover;
+      background-position: center;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: white;
+      padding: 64px 20px;
+    }
 
-.card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
-}
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-.card-body {
-    padding: 20px;
-}
+    .card-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
 
-.card-body h3 {
-    font-size: 22px;
-    color: #2C3E50;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
+    .card-body {
+      padding: 20px;
+    }
 
-.card-body p {
-    font-size: 16px;
-    color: #34495E;
-    line-height: 1.6;
-}
+    .card-body h3 {
+      font-size: 18px;
+      color: #2C3E50;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .card-body p {
+      font-size: 16px;
+      color: #34495E;
+      line-height: 1.6;
+    }
 
     @media screen and (max-width: 768px) {
       .personality-card {
         flex: 0 0 calc(50% - 20px);
         max-width: calc(50% - 20px);
       }
+
       .w3-col {
         width: 100%;
         padding: 0 10px;
+      }
+
+      .card {
+        margin-bottom: 15px;
+        width: 100%;
+      }
     }
 
-    .card {
-        margin-bottom: 15px; 
-        width: 100%;
-    }
-    }
-  
     @media screen and (max-width: 480px) {
       .personality-row {
-        justify-content: center; 
+        justify-content: center;
       }
-  
+
       .personality-card {
-        flex: 0 0 100%; 
+        flex: 0 0 100%;
         max-width: 100%;
       }
     }
   </style>
-    
-</style>
 
- <div class="w3-top">
+  </style>
+
+  <div class="w3-top">
     <div class="w3-bar w3-wide">
       <a href="#home" class="w3-bar-item w3-button"><b>Inside Out</b></a>
       <div class="w3-right w3-hide-small">
@@ -222,7 +225,7 @@
     </div>
   </div>
 
-<header class="w3-display-container w3-wide" id="home">
+  <header class="w3-display-container w3-wide" id="home">
     <video id="background-video" muted loop>
       <source src="De Leon, Loraine G.mov" type="video/mp4">
       Your browser does not support the video tag.
@@ -236,7 +239,7 @@
       </div>
     </div>
   </header>
-  
+
 
   <section id="about" class="w3-container w3-center w3-text-white" style="padding: 30px; background-color: #030c1d;">
     <div class="about-background" style="max-width: 1200px; margin: 0 auto;">
@@ -277,7 +280,8 @@
               think. It’s this combination of humor, heart, and vulnerability that makes Loraine a truly unique
               individual—someone who brings light into the world while quietly finding her way toward personal growth.
             </p>
-            <p style="text-align: left; font-size: 14px; font-style: italic; color: #f0f0f0; margin-top: 5px; padding-bottom:20px;">
+            <p
+              style="text-align: left; font-size: 14px; font-style: italic; color: #f0f0f0; margin-top: 5px; padding-bottom:20px;">
               - Laura Beatriz Luna
             </p>
           </div>
@@ -289,93 +293,131 @@
   <section id="personalities" class="w3-container w3-padding-64" style="background-color: #f4f4f4;">
     <h1 class="w3-center w3-text-white" style="padding-bottom: 30px;">Four Islands of Personality</h1>
     <div class="w3-row personality-row">
-  
+
       <div class="personality-card">
         <div class="w3-card-4 w3-round-large">
           <img src="img/joy.png" alt="Optimist" class="floating-img">
           <div class="w3-container w3-padding-16" style="background-color: #FFEB3B; text-align: center;">
             <h3>The Optimist</h3>
-            <p style="margin-bottom: 20px;">Loraine's optimism is her superpower. Like Joy, she radiates positivity and finds the best in every situation.</p>
+            <p style="margin-bottom: 20px;">Loraine's optimism is her superpower. Like Joy, she radiates positivity and
+              finds the best in every situation.</p>
           </div>
         </div>
       </div>
-  
+
       <div class="personality-card">
         <div class="w3-card-4 w3-round-large">
           <img src="img/d1.jpg" alt="Thoughtful Explorer" class="floating-img">
           <div class="w3-container w3-padding-16" style="background-color: #FFCDD2; text-align: center;">
             <h3>Thoughtful Explorer</h3>
-            <p style="margin-bottom: 20px;">The Explorer within her loves trying new things, whether it’s traveling to new places, meeting new people, or diving into different hobbies.</p>
+            <p style="margin-bottom: 20px;">The Explorer within her loves trying new things, whether it’s traveling to
+              new places, meeting new people, or diving into different hobbies.</p>
           </div>
         </div>
       </div>
-  
+
       <div class="personality-card">
         <div class="w3-card-4 w3-round-large">
           <img src="img/joy.png" alt="Competitor" class="floating-img">
           <div class="w3-container w3-padding-16" style="background-color: #B2DFDB;text-align: center;">
             <h3>The Competitor</h3>
-            <p style="margin-bottom: 20px;">Loraine have a strong desire to win and would be highly driven to achieve her goals, both individually and as part of a team. </p>
+            <p style="margin-bottom: 20px;">Loraine have a strong desire to win and would be highly driven to achieve
+              her goals, both individually and as part of a team. </p>
           </div>
         </div>
       </div>
-  
+
       <div class="personality-card">
         <div class="w3-card-4 w3-round-large">
           <img src="img/saddd.jpg" alt="Loving Sou" class="floating-img">
           <div class="w3-container w3-padding-16" style="background-color: #e9a2e6; text-align: center;">
             <h3>Loving Soul</h3>
-            <p style="margin-bottom: 20px;">Loraine is loving, offering kindness and warmth to everyone around her, always ready to listen and provide support.</p>
+            <p style="margin-bottom: 20px;">Loraine is loving, offering kindness and warmth to everyone around her,
+              always ready to listen and provide support.</p>
           </div>
         </div>
       </div>
+
+    </div>
+  </section>
+
+
+  <section id="optimist" class="w3-container w3-padding-64">
+    <div class="w3-center" style="margin-bottom: 40px;">
+      <h1 style="font-size: 30px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;">Welcome to The Optimistic Island
+      </h1>
+      <p style="font-size: 18px; color: #7F8C8D; margin-top: 10px;">Description
+       </p>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-col l6 s12" style="padding: 0 10px;">
+        <div class="card">
+          <img src="img/joy11.jpg" alt="Optimism" class="card-img">
+          <div class="card-body">
+            <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
+            <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Loraine’s optimism is contagious. Like Joy
+              from *Inside Out*, she radiates positivity, always finding a way to uplift those around her with every
+              challenge.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-col l6 s12" style="padding: 0 10px;">
+        <div class="card">
+          <img src="img/op2.jpg" alt="Optimism" class="card-img">
+          <div class="card-body">
+            <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
+            <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Her ability to see the bright side in any
+              situation brings joy to others. She teaches us that with the right mindset, every setback can turn into an
+              opportunity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-container" style="padding: 20px; margin-top: 20px;">
+      <div style="max-width: 800px; margin: 0 auto; background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); padding: 20px;">
+        <p style="font-size: 18px; color: #2C3E50; line-height: 1.8; text-align: center;">
+          “Loraine’s optimism is truly inspiring. She has this rare ability to see the good in every challenge, turning obstacles into opportunities. Her positivity is contagious and uplifts everyone around her, making her a source of light in any situation.”
+        </p>
+        <p style="font-size: 16px; color: #7F8C8D; text-align: center; margin-top: 10px;">
+          - Reina Cabrera (Loraine's Friend)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="traveler" class="w3-container w3-padding-32" style="background-image: url('img/travelbg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFFFFF;"> 
+    <div class="w3-center" style="margin-bottom: 30px;">
+      <h1 style="font-size: 32px; font-weight: 700; text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); letter-spacing: 1.2px;">Welcome to The Explorer's Island</h1>
+      <p style="font-size: 16px; margin-top: 10px; text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);">A journey through wanderlust, adventure, and discovery.</p>
+    </div>
   
+    <div class="w3-row" style="padding: 20px;">
+      <!-- First Grid: Two Images Side by Side -->
+      <div class="w3-col l6 s12" style="padding: 10px;">
+        <img src="img/travel1.jpg" alt="Adventure" class="card-img" style="width: 100%; height: 300px; border-bottom: 3px solid #2874A6;">
+      </div>
+      <div class="w3-col l6 s12" style="padding: 10px;">
+        <img src="img/travl2.jpg" alt="Discovering New Horizons" class="card-img" style="width: 100%; height: 300px; border-bottom: 3px solid #1ABC9C;">
+      </div>
+  
+      <!-- Second Grid: Text Content -->
+      <div class="w3-col l12 s12" style="padding: 10px; text-align: center; margin-top: 30px;">
+        <p style="font-size: 18px; color: #2C3E50; line-height: 1.6; text-align: center; font-style: italic;">
+          "The world is a book, and those who do not travel read only one page. Traveling fuels my soul, broadens my perspective, and reminds me of the beauty in diversity."
+        </p>
+        <p style="font-size: 16px; color: #7D3C98; text-align: center; margin-top: 10px;">
+          - Loraine, The Adventurer
+        </p>
+      </div>
     </div>
   </section>
   
-  
-  <section id="optimist" class="w3-container w3-padding-64">
-    <!-- Section Header -->
-    <div class="w3-center" style="margin-bottom: 40px;">
-        <h1 style="font-size: 48px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;">Welcome to Optimistic Island</h1>
-        <p style="font-size: 18px; color: #7F8C8D; margin-top: 10px;">Where positivity and hope face every challenge with unwavering strength and grace.</p>
-    </div>
+    
 
-    <!-- Cards for Image and Description -->
-    <div class="w3-row">
-        <!-- Left Card: Optimism 1 -->
-        <div class="w3-col l6 s12" style="padding: 0 10px;">
-            <div class="card">
-                <img src="img/827bbb78f3b6c2ef15e3fc11670b7bae-removebg-preview.png" alt="Optimism" class="card-img">
-                <div class="card-body">
-                    <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
-                    <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Loraine’s optimism is contagious. Like Joy from *Inside Out*, she radiates positivity, always finding a way to uplift those around her with every challenge.</p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Right Card: Optimism 2 -->
-        <div class="w3-col l6 s12" style="padding: 0 10px;">
-            <div class="card">
-                <img src="img/joy.png" alt="Optimism" class="card-img">
-                <div class="card-body">
-                    <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
-                    <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Her ability to see the bright side in any situation brings joy to others. She teaches us that with the right mindset, every setback can turn into an opportunity.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Letter from a Friend -->
-    <div class="w3-container" style="padding:10px 20px; border-radius: 8px;">
-
-        <div style="max-width: 100%; margin: 0 auto; padding: 10px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <p style="font-size: 20px; color: #2C3E50; line-height: 1.8;">Dear Loraine,</p>
-            <p style="font-size: 18px; color: #34495E; line-height: 1.8;">I can’t help but admire your unwavering optimism. It’s truly a rare gift, and I’ve watched in awe as you’ve turned every obstacle into an opportunity for growth. Your positivity lifts us all.</p>
-        </div>
-    </div>
-</section>
-  
   <!-- Contact Section -->
   <div class="w3-container w3-padding-32" id="contact">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
@@ -390,21 +432,22 @@
       </button>
     </form>
   </div>
-  
-<!-- Image of location/map -->
-<div class="w3-container">
-  <img src="/w3images/map.jpg" class="w3-image" style="width:100%">
-</div>
 
-<!-- End page content -->
-</div>
+  <!-- Image of location/map -->
+  <div class="w3-container">
+    <img src="/w3images/map.jpg" class="w3-image" style="width:100%">
+  </div>
+
+  <!-- End page content -->
+  </div>
 
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
-<script>
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-16">
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+        class="w3-hover-text-green">w3.css</a></p>
+  </footer>
+  <script>
     const video = document.getElementById("background-video");
 
     function toggleVideoPlay() {
@@ -426,5 +469,6 @@
     }
   </script>
 
-</body>
+  </body>
+
 </html>
