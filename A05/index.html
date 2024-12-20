@@ -95,7 +95,61 @@
     .play-button i {
       color: #fff;
     }
+    
+    .personality-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; 
+      gap: 20px; 
+    }
 
+    .personality-card {
+      flex: 0 0 calc(25% - 20px); 
+      max-width: calc(25% - 20px); 
+    }
+  
+    .w3-card-4 {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+      position: relative; 
+    }
+  
+    .w3-card-4:hover {
+      transform: scale(1.05);
+    }
+
+    .floating-img {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    @media screen and (max-width: 768px) {
+      .personality-card {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+      }
+    }
+  
+    @media screen and (max-width: 480px) {
+      .personality-row {
+        justify-content: center; 
+      }
+  
+      .personality-card {
+        flex: 0 0 100%; 
+        max-width: 100%;
+      }
+    }
+  </style>
+    
 </style>
 
  <div class="w3-top">
@@ -124,9 +178,102 @@
     </div>
   </header>
 
-<!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
+  <section id="about" class="w3-container w3-center w3-text-white" style="padding: 30px; background-color: #030c1d;">
+    <div class="about-background" style="max-width: 1200px; margin: 0 auto;">
+      <div class="w3-row-padding" style="margin-top: 40px; margin-left: 0; margin-right: 0;">
+        <div class="w3-half" style="padding: 5px; position: relative;">
+          <img src="img/me.jpg" alt="Loraine Image" class="w3-image w3-hover-opacity"
+            style="width: 100%; height: 580px; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px; transition: transform 0.3s ease;">
 
+          <div class="w3-display-bottomleft"
+            style="font-size: 18px; font-style: italic; background-color: rgba(0, 0, 0, 0.3); width: 100%; text-align: center; padding: 5px 0; border-radius: 10px;">
+            "She brings joy to everyone" - Laura
+          </div>
+        </div>
+
+        <div class="w3-half" style="padding-left: 40px; max-width: 600px;">
+          <div class=" w3-round-large" style=" color: #f0f0f0; ">
+            <h2 class="w3-large w3-text-shadow" style="margin-bottom: 10px; font-size: 20px;">Loraine: A Journey of Joy
+              and Fear</h2>
+            <p style="text-align: justify; line-height: 1.7; font-size: 14px;">
+              Loraine is like Joy from the Inside Out—always bubbling with energy and ready to make others smile. Her
+              infectious sense of humor and optimistic outlook light up any room she walks into. Whether it’s cracking
+              jokes or sharing a funny story, Loraine has the unique ability to turn everyday moments into something
+              special. Her laughter is a reminder that life is too short to take too seriously, and that joy can be
+              found even in the smallest things.
+            </p>
+            <p style="text-align: justify; line-height: 1.7; font-size: 14px;">
+              But beneath the laughter and lightheartedness, there's a side of Loraine that mirrors the emotion of Fear.
+              It's not the kind of fear that’s obvious to everyone, but more of a quiet, internal one. She sometimes
+              feels an apprehension—an anxiety over how she’s perceived and the judgment of others. It's a vulnerability
+              that often holds her back from fully expressing herself. Despite her warm and welcoming exterior, Loraine
+              can sometimes wonder if she’s saying the right things, if people are truly understanding her intentions,
+              or if they’re judging her in ways she fears.
+            </p>
+            <p style="text-align: justify; line-height: 1.7; font-size: 14px;">
+              Yet, it’s this balance between Joy and Fear that makes Loraine who she is. While she continues to spread
+              laughter and positivity, she’s also on a personal journey of embracing her fears and insecurities. Slowly,
+              she’s learning to let go of the worry and accept that being herself is enough, no matter what others might
+              think. It’s this combination of humor, heart, and vulnerability that makes Loraine a truly unique
+              individual—someone who brings light into the world while quietly finding her way toward personal growth.
+            </p>
+            <p style="text-align: left; font-size: 14px; font-style: italic; color: #f0f0f0; margin-top: 5px; padding-bottom:20px;">
+              - Laura Beatriz Luna
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="personalities" class="w3-container w3-padding-64" style="background-color: #f4f4f4;">
+    <h1 class="w3-center" style="padding-bottom: 30px;">Discover the Four Islands of Personality</h1>
+    <div class="w3-row personality-row">
+  
+      <div class="personality-card">
+        <div class="w3-card-4 w3-round-large">
+          <img src="img/saddd.jpg" alt="Joyful Spirit" class="floating-img">
+          <div class="w3-container w3-padding-16" style="background-color: #FFEB3B; text-align: center;">
+            <h3>The Optimist</h3>
+            <p style="margin-bottom: 20px;">Loraine's optimism is her superpower. Like Joy, she radiates positivity and finds the best in every situation.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="personality-card">
+        <div class="w3-card-4 w3-round-large">
+          <img src="thoughtful-explorer.jpg" alt="Thoughtful Explorer" class="floating-img">
+          <div class="w3-container w3-padding-16" style="background-color: #FFCDD2; text-align: center;">
+            <h3>Thoughtful Explorer</h3>
+            <p style="margin-bottom: 20px;">The Explorer within her loves trying new things, whether it’s traveling to new places, meeting new people, or diving into different hobbies.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="personality-card">
+        <div class="w3-card-4 w3-round-large">
+          <img src="compassionate-heart.jpg" alt="Compassionate Heart" class="floating-img">
+          <div class="w3-container w3-padding-16" style="background-color: #B2DFDB;text-align: center;">
+            <h3>The Empath</h3>
+            <p style="margin-bottom: 20px;">She instinctively understands others' emotions, offering comfort and empathy, much like Sadness, quietly supporting those in their grief.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="personality-card">
+        <div class="w3-card-4 w3-round-large">
+          <img src="resilient-mind.jpg" alt="Resilient Mind" class="floating-img">
+          <div class="w3-container w3-padding-16" style="background-color: #e9a2e6; text-align: center;">
+            <h3>Loving Soul</h3>
+            <p style="margin-bottom: 20px;">Loraine is loving, offering kindness and warmth to everyone around her, always ready to listen and provide support.</p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
   <!-- Project Section -->
   <div class="w3-container w3-padding-32" id="projects">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
@@ -263,7 +410,6 @@
         document.querySelector(".play-button i").classList.remove("fa-play");
         document.querySelector(".play-button i").classList.add("fa-pause");
 
-        // Make the video visible when playing
         video.style.opacity = "1";
         video.style.visibility = "visible";
       } else {
@@ -271,7 +417,6 @@
         document.querySelector(".play-button i").classList.remove("fa-pause");
         document.querySelector(".play-button i").classList.add("fa-play");
 
-        // Keep the video hidden when paused
         video.style.opacity = "0";
         video.style.visibility = "hidden";
       }
