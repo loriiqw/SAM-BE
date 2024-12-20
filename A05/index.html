@@ -137,12 +137,64 @@
       border: 3px solid white;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
+   
+#optimist {
+    background-image: url(img/yel.png);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    padding: 64px 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; 
+    width: 95%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    font-size: 22px;
+    color: #2C3E50;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.card-body p {
+    font-size: 16px;
+    color: #34495E;
+    line-height: 1.6;
+}
 
     @media screen and (max-width: 768px) {
       .personality-card {
         flex: 0 0 calc(50% - 20px);
         max-width: calc(50% - 20px);
       }
+      .w3-col {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .card {
+        margin-bottom: 15px; 
+        width: 100%;
+    }
     }
   
     @media screen and (max-width: 480px) {
@@ -184,6 +236,7 @@
       </div>
     </div>
   </header>
+  
 
   <section id="about" class="w3-container w3-center w3-text-white" style="padding: 30px; background-color: #030c1d;">
     <div class="about-background" style="max-width: 1200px; margin: 0 auto;">
@@ -234,7 +287,7 @@
   </section>
 
   <section id="personalities" class="w3-container w3-padding-64" style="background-color: #f4f4f4;">
-    <h1 class="w3-center w3-text-white" style="padding-bottom: 30px;">Discover the Four Islands of Personality</h1>
+    <h1 class="w3-center w3-text-white" style="padding-bottom: 30px;">Four Islands of Personality</h1>
     <div class="w3-row personality-row">
   
       <div class="personality-card">
@@ -262,7 +315,7 @@
           <img src="img/joy.png" alt="Competitor" class="floating-img">
           <div class="w3-container w3-padding-16" style="background-color: #B2DFDB;text-align: center;">
             <h3>The Competitor</h3>
-            <p style="margin-bottom: 20px;"> have a strong desire to win and would be highly driven to achieve her goals, both individually and as part of a team. </p>
+            <p style="margin-bottom: 20px;">Loraine have a strong desire to win and would be highly driven to achieve her goals, both individually and as part of a team. </p>
           </div>
         </div>
       </div>
@@ -281,105 +334,48 @@
   </section>
   
   
-  <!-- Project Section -->
-  <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
-  </div>
+  <section id="optimist" class="w3-container w3-padding-64">
+    <!-- Section Header -->
+    <div class="w3-center" style="margin-bottom: 40px;">
+        <h1 style="font-size: 48px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;">Welcome to Optimistic Island</h1>
+        <p style="font-size: 18px; color: #7F8C8D; margin-top: 10px;">Where positivity and hope face every challenge with unwavering strength and grace.</p>
+    </div>
 
-  <div class="w3-row-padding">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
-        <img src="/w3images/house5.jpg" alt="House" style="width:100%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
-        <img src="/w3images/house2.jpg" alt="House" style="width:100%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
-        <img src="/w3images/house3.jpg" alt="House" style="width:100%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
-        <img src="/w3images/house4.jpg" alt="House" style="width:100%">
-      </div>
-    </div>
-  </div>
+    <!-- Cards for Image and Description -->
+    <div class="w3-row">
+        <!-- Left Card: Optimism 1 -->
+        <div class="w3-col l6 s12" style="padding: 0 10px;">
+            <div class="card">
+                <img src="img/827bbb78f3b6c2ef15e3fc11670b7bae-removebg-preview.png" alt="Optimism" class="card-img">
+                <div class="card-body">
+                    <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
+                    <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Loraine’s optimism is contagious. Like Joy from *Inside Out*, she radiates positivity, always finding a way to uplift those around her with every challenge.</p>
+                </div>
+            </div>
+        </div>
 
-  <div class="w3-row-padding">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
-        <img src="/w3images/house2.jpg" alt="House" style="width:99%">
-      </div>
+        <!-- Right Card: Optimism 2 -->
+        <div class="w3-col l6 s12" style="padding: 0 10px;">
+            <div class="card">
+                <img src="img/joy.png" alt="Optimism" class="card-img">
+                <div class="card-body">
+                    <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
+                    <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Her ability to see the bright side in any situation brings joy to others. She teaches us that with the right mindset, every setback can turn into an opportunity.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
-        <img src="/w3images/house5.jpg" alt="House" style="width:99%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
-        <img src="/w3images/house4.jpg" alt="House" style="width:99%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
-        <img src="/w3images/house3.jpg" alt="House" style="width:99%">
-      </div>
-    </div>
-  </div>
 
-  <!-- About Section -->
-  <div class="w3-container w3-padding-32" id="about">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-  </div>
+    <!-- Letter from a Friend -->
+    <div class="w3-container" style="padding:10px 20px; border-radius: 8px;">
 
-  <div class="w3-row-padding w3-grayscale">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-      <h3>John Doe</h3>
-      <p class="w3-opacity">CEO & Founder</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+        <div style="max-width: 100%; margin: 0 auto; padding: 10px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <p style="font-size: 20px; color: #2C3E50; line-height: 1.8;">Dear Loraine,</p>
+            <p style="font-size: 18px; color: #34495E; line-height: 1.8;">I can’t help but admire your unwavering optimism. It’s truly a rare gift, and I’ve watched in awe as you’ve turned every obstacle into an opportunity for growth. Your positivity lifts us all.</p>
+        </div>
     </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <h3>Jane Doe</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-      <h3>Mike Ross</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <img src="/w3images/team4.jpg" alt="Dan" style="width:100%">
-      <h3>Dan Star</h3>
-      <p class="w3-opacity">Architect</p>
-      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-    </div>
-  </div>
-
+</section>
+  
   <!-- Contact Section -->
   <div class="w3-container w3-padding-32" id="contact">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
