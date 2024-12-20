@@ -34,7 +34,7 @@
     #home {
       position: relative;
       height: 100vh;
-      background-image: url("ef24b7897d8ae68a54472883539c94816dcec467\ \(1\).jpg");
+      background-image: url(img/ef24b7897d8ae68a54472883539c94816dcec467\ \(1\).jpg);
       background-size: cover;
       background-position: center;
       overflow: hidden;
@@ -254,6 +254,29 @@
 <footer class="w3-center w3-black w3-padding-16">
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
+<script>
+    const video = document.getElementById("background-video");
+
+    function toggleVideoPlay() {
+      if (video.paused) {
+        video.play();
+        document.querySelector(".play-button i").classList.remove("fa-play");
+        document.querySelector(".play-button i").classList.add("fa-pause");
+
+        // Make the video visible when playing
+        video.style.opacity = "1";
+        video.style.visibility = "visible";
+      } else {
+        video.pause();
+        document.querySelector(".play-button i").classList.remove("fa-pause");
+        document.querySelector(".play-button i").classList.add("fa-play");
+
+        // Keep the video hidden when paused
+        video.style.opacity = "0";
+        video.style.visibility = "hidden";
+      }
+    }
+  </script>
 
 </body>
 </html>
