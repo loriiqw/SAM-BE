@@ -535,31 +535,56 @@
 </section>
 
 
-  <section id="loving" class="w3-container w3-padding-64"
-    style="background-image: url('img/lovbg.png '); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <div class="w3-center" style="margin-bottom: 40px;">
-      <h1 style="font-size: 36px; font-weight: 700; color: #fff;">My Loved Ones</h1>
-      <p style="font-size: 18px; color: #fff; margin-top: 10px; line-height: 1.5;">A tribute to those who fill my heart
-        with love and warmth.</p>
+<section style="background-image: url('img/lovbg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 64px 32px;">
+    <div class="w3-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    
+        <!-- Title and Description -->
+        <div style="text-align: center; width: 100%; margin-bottom: 40px;">
+            <h1 style="font-size: 36px; font-weight: 700; color: #fff;">My Loved Ones</h1>
+            <p style="font-size: 18px; color: #fff; margin-top: 10px; line-height: 1.5;">
+                A tribute to those who fill my heart with love and warmth.
+            </p>
+        </div>
+
+
+        <?php
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 7");
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $imagePath1 = isset($row['image_path']) ? $row['image_path'] : 'img/loving3.jpg';
+        }
+        ?>
+        <div class="w3-card-4 w3-margin w3-round" style="max-width: 300px; background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <img src="<?php echo $imagePath1; ?>" alt="Competitor 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+        </div>
+
+        <?php
+        // Fetching the second image
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 8");
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $imagePath2 = isset($row['image_path']) ? $row['image_path'] : 'img/opti1.jpg';
+        }
+        ?>
+        <div class="w3-card-4 w3-margin w3-round" style="max-width: 300px; background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <img src="<?php echo $imagePath2; ?>" alt="Competitor 2" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+        </div>
+
+        <?php
+        // Fetching the third image
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 9");
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/loving2.jpg';
+        }
+        ?>
+        <div class="w3-card-4 w3-margin w3-round" style="max-width: 300px; background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <img src="<?php echo $imagePath; ?>" alt="Competitor 3" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+        </div>
+
     </div>
 
 
-    <div class="w3-row w3-padding-32" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-      <div class="w3-card-4 w3-margin w3-round" style="max-width: 320px;">
-        <img src="img/loving3.jpg" alt="Loved One 1"
-          style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px 12px 0 0;">
-      </div>
-
-      <div class="w3-card-4 w3-margin w3-round" style="max-width: 320px;">
-        <img src="img/opti1.jpg" alt="Loved One 2"
-          style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px 12px 0 0;">
-      </div>
-
-      <div class="w3-card-4 w3-margin w3-round" style="max-width: 320px;">
-        <img src="img/loving2.jpg" alt="Loved One 3"
-          style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px 12px 0 0;">
-      </div>
-    </div>
 
     <div class="w3-center w3-padding-32">
       <div class="w3-card-4 w3-padding-32"
