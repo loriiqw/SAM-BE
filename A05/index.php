@@ -212,7 +212,6 @@
 
 <body>
 
-
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark"
     style="background-color: #3B4F76; color: #fff; position: sticky; top: 0; z-index: 10;">
     <div class="container">
@@ -245,8 +244,6 @@
       </div>
     </div>
   </nav>
-
-
 
   <header class="w3-display-container w3-wide" id="home">
     <video id="background-video" muted loop>
@@ -349,6 +346,8 @@
         <h1 style="font-size: 30px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;">
             Welcome to The Optimistic Island
         </h1>
+        <p style="font-size: 18px; color: rgb(151, 146, 146); margin-top: 10px; line-height: 1.5;">Exploring life, one journey at a time.</p>
+
 
         <?php
         $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID IN (1, 2, 3, 13)");
@@ -412,104 +411,129 @@
     </div>
 </section>
 
-  <section id="traveler" class="w3-container"
-    style="background-image: url('img/travelbg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFFFFF;">
+<section id="traveler" class="w3-container" style="background-image: url('img/travelbg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFFFFF;">
     <div class="w3-center" style="margin-bottom: 30px; padding-top: 30px;">
-      <h1 style="font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 2px; ">
-        Welcome to The Explorer Island
-      </h1>
-      <p style="font-size: 18px; color: #d1d1d1; margin-top: 10px; line-height: 1.5;">
-        A journey through wanderlust, adventure, and discovery.
-      </p>
+        <h1 style="font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 2px; padding-top:30px">Welcome to The Explorer Island</h1>
+        <p style="font-size: 18px; color: #d1d1d1; margin-top: 10px; line-height: 1.5;">A journey through wanderlust, adventure, and discovery.</p>
     </div>
 
-    <div class="w3-row row" style="padding: 20px; display: flex; flex-wrap: wrap; justify-content: center;">
-      <div class="w3-col l6 s12 col-lg-6 col-md-12 order-1 order-md-1" style="padding: 10px;">
-        <div class="card"
-          style="background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden; padding: 20px;">
-          <h3 style="font-size: 24px; color: #2874A6; font-weight: 600; margin-bottom: 15px;">Embracing Adventure</h3>
-          <p style="font-size: 16px; color: #34495E; line-height: 1.8; text-align: justify;">
-            Every journey is a new story waiting to be written. From scaling the peaks of majestic mountains to
-            wandering through vibrant city streets, I find joy in embracing the unknown. Each adventure offers a chance
-            to discover new cultures, meet fascinating people, and experience the thrill of exploring unfamiliar
-            landscapes. Whether it's trekking through the wilderness, sailing across vast oceans, or simply strolling
-            through a hidden gem of a town, the journey is as important as the destination. Traveling teaches me more
-            than just geography – it broadens my perspective on life, connects me to the diversity of the world, and
-            reminds me of the beauty that surrounds us.
-          </p>
-          <p style="font-size: 16px; color: #34495E; line-height: 1.8; text-align: justify">
-            The experiences, the memories, and the stories that unfold along the way are what make life truly
-            extraordinary. With each trip, I grow both personally and spiritually. The world is full of wonders that I
-            have yet to explore, and that excitement drives me to continue pushing my boundaries. There's a unique magic
-            in immersing oneself in new environments, letting go of the familiar, and discovering the unexpected. Every
-            journey brings something new—whether it’s a lesson, an epiphany, or simply the joy of living in the moment.
-            Adventure is not just about reaching the destination; it’s about the endless learning and growth that
-            happens along the way.
-          </p>
-        </div>
-      </div>
+    <div class="w3-row row" style="padding: 10px; display: flex; flex-wrap: wrap; justify-content: center;">
+        <?php
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 4");
 
-      <div class="w3-col l4 s12 col-lg-4 col-md-12 order-2 order-md-2" style="padding: 10px;">
-        <div style="margin-bottom: 20px;">
-          <img src="img/travel1.jpg" alt="Adventure" class="card-img img-fluid"
-            style="width: 100%; height: 300px; border-bottom: 3px solid #2874A6; object-fit: cover;">
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();  
+            $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/default.jpg';
+            $title = 'Embracing Adventure';  
+            $content = htmlspecialchars($row['content']); 
+        ?>
+
+        <div class="w3-col l6 s12 col-lg-6 col-md-12 order-1 order-md-1" style="padding: 10px;">
+            <div class="card" style="background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden; padding: 20px;">
+                <h3 style="font-size: 24px; color: #2874A6; font-weight: 600; margin-bottom: 15px;"><?php echo $title; ?></h3>
+                <p style="font-size: 16px; color: #34495E; line-height: 1.8; text-align: justify;">
+                    <?php echo $content . 'familiar landscapes. Whether it is trekking through the wilderness, sailing across vast oceans, or simply strolling through a hidden gem of a town, the journey is as important as the destination. Traveling teaches me more than just geography – it broadens my perspective on life, connects me to the diversity of the world, and reminds me of the beauty that surrounds us.'; ?>
+                </p>
+                <p style="font-size: 16px; color: #34495E; line-height: 1.8; text-align: justify">
+                    The experiences, the memories, and the stories that unfold along the way are what make life truly extraordinary. With each trip, I grow both personally and spiritually. The world is full of wonders that I have yet to explore, and that excitement drives me to continue pushing my boundaries. There's a unique magic in immersing oneself in new environments, letting go of the familiar, and discovering the unexpected. Every journey brings something new—whether it’s a lesson, an epiphany, or simply the joy of living in the moment. Adventure is not just about reaching the destination; it’s about the endless learning and growth that happens along the way.
+                </p>
+            </div>
         </div>
-        <div>
-          <img src="img/travl2.jpg" alt="Discovering New Horizons" class="card-img img-fluid"
-            style="width: 100%; height: 300px; border-bottom: 3px solid #1ABC9C; object-fit: cover;">
+
+        <div class="w3-col l4 s12 col-lg-4 col-md-12 order-2 order-md-2" style="padding: 10px;">
+            <div style="margin-bottom: 20px;">
+                <?php
+                $imagePath1 = 'img/travel1.jpg';
+                echo "<img src='" . htmlspecialchars($imagePath1) . "' alt='Adventure' class='card-img img-fluid' style='width: 100%; height: 300px; border-bottom: 3px solid #2874A6; object-fit: cover;'>";
+                ?>
+            </div>
+            <div>
+                <?php
+                $imagePath2 = 'img/travl2.jpg';
+                echo "<img src='" . htmlspecialchars($imagePath2) . "' alt='Discovering New Horizons' class='card-img img-fluid' style='width: 100%; height: 300px; border-bottom: 3px solid #1ABC9C; object-fit: cover;'>";
+                ?>
+            </div>
         </div>
-      </div>
+
+        <?php
+        } else {
+            echo "<p>No content available for this section.</p>";
+        }
+        ?>
     </div>
-  </section>
+</section>
 
-  <section id="competitors" class="w3-container w3-padding-64"
+<section id="competitors" class="w3-container w3-padding-64" 
     style="background-image: url('img/bg5.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="w3-center" style="margin-bottom: 40px;">
-      <h1 style="font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 2px; ">Competitor Island</h1>
-      <p style="font-size: 18px; color: #d1d1d1; margin-top: 10px; line-height: 1.5;">A journey through our competitors'
-        eras that have shaped their character and skills.</p>
+        <h1 style="font-size: 32px; font-weight: 700; color: #fff; letter-spacing: 2px;">Competitor Island</h1>
+        <p style="font-size: 18px; color: #d1d1d1; margin-top: 10px; line-height: 1.5;">A journey through our competitors' eras that have shaped my character and skills.</p>
     </div>
 
     <div class="w3-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
 
-      <div class="w3-card-4 w3-margin w3-round"
-        style="max-width: 300px;background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden; ">
-        <img src="img/comp1.jpg" alt="Competitor 1"
-          style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
-        <div class="w3-padding">
-          <h3 style="font-size: 20px; color: #2C3E50; font-weight: 600; margin-bottom: 15px;">Pageant Era</h3>
-          <p style="font-size: 15px; color: #34495E; line-height: 1.8; text-align: justify">The Pageant Era was a
-            defining moment of confidence, grace, and discipline. This phase nurtured my ability to present myself with
-            poise and embrace challenges in the spotlight.</p>
-        </div>
-      </div>
+       
+        <?php
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 7");
 
-      <div class="w3-card-4 w3-margin w3-round"
-        style="background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;  max-width: 300px;">
-        <img src="img/sporty 1.jpg" alt="Competitor 2"
-          style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
-        <div class="w3-padding">
-          <h3 style="font-size: 20px; color: #2C3E50; font-weight: 600; margin-bottom: 15px;">Sporty Era</h3>
-          <p style="font-size: 15px; color: #34495E; line-height: 1.8; text-align: justify">My Sporty Era taught me the
-            importance of resilience, teamwork, and perseverance. It was during this time that I learned to push my
-            limits and thrive under pressure, both physically and mentally.</p>
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();  
+            $imagePath1 = isset($row['image_path']) ? $row[ 'image_path'] : 'img/comp1.jpg';
+            $title1 = 'The Pageant Era';  
+            $content = htmlspecialchars($row['content']); 
+        }
+      ?>
+      
+        <div class="w3-card-4 w3-margin w3-round" style="max-width: 300px;background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <img src="<?php echo $imagePath1; ?>" alt="Competitor 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+            <div class="w3-padding">
+                <h3 style="font-size: 20px; color: #2C3E50; font-weight: 600; margin-bottom: 15px; padding-top:10px;"><?php echo $title1; ?></h3>
+                <p style="font-size: 15px; color: #34495E; line-height: 1.8; text-align: justify"><?php echo $content; ?></p>
+            </div>
         </div>
-      </div>
+        <?php
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 8");
 
-      <div class="w3-card-4 w3-margin w3-round"
-        style=" background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden; max-width: 300px;">
-        <img src="img/op1.jpg" alt="Competitor 3"
-          style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
-        <div class="w3-padding">
-          <h3 style="font-size: 20px; color: #2C3E50; font-weight: 600; margin-bottom: 15px;">Dancer Era</h3>
-          <p style="font-size: 15px; color: #34495E; line-height: 1.8; text-align: justify">The Dancer Era was a journey
-            of emotional release and creative expression. It refined my ability to convey emotions through movement and
-            connect with others in a more profound, graceful manner.</p>
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();  
+            $imagePath2 = isset($row['image_path']) ? $row['image_path'] : 'img/sporty.jpg';
+            $title = 'The Sporty Era';  
+            $content = htmlspecialchars($row['content']); 
+        }
+        ?>
+        <div class="w3-card-4 w3-margin w3-round" style="max-width: 300px;background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <img src="<?php echo $imagePath2; ?>" alt="Competitor 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+            <div class="w3-padding">
+                <h3 style="font-size: 20px; color: #2C3E50; font-weight: 600; margin-bottom: 15px; padding-top:10px;"><?php echo $title; ?></h3>
+                <p style="font-size: 15px; color: #34495E; line-height: 1.8; text-align: justify"><?php echo $content; ?></p>
+            </div>
         </div>
-      </div>
+        <?php
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 9");
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();  
+            $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/op1.jpg';
+            $title = 'The Dancer Era';  
+            $content = htmlspecialchars($row['content']); 
+        ?>
+        <div class="w3-card-4 w3-margin w3-round" style="max-width: 300px;background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <img src="<?php echo $imagePath; ?>" alt="Competitor 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
+            <div class="w3-padding">
+                <h3 style="font-size: 20px; color: #2C3E50; font-weight: 600; margin-bottom: 15px; padding-top:10px;"><?php echo $title; ?></h3>
+                <p style="font-size: 15px; color: #34495E; line-height: 1.8; text-align: justify"><?php echo $content; ?></p>
+            </div>
+        </div>
+
+        <?php
+        } else {
+            echo "<p>No content found for competitors.</p>";
+        }
+        ?>
 
     </div>
-  </section>
+</section>
+
 
   <section id="loving" class="w3-container w3-padding-64"
     style="background-image: url('img/lovbg.png '); background-size: cover; background-position: center; background-repeat: no-repeat;">
