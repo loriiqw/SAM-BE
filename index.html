@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loraine De Leon - PUP IT Student</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/loriiqw/img/refs/heads/main/icon.png.png">
+  <meta name="description" content="Welcome to the portfolio of Loraine De Leon, a dedicated IT student at PUP, showcasing skills in web development, design, and programming.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      background-color: transparent;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1030;
+    }
+
+    .navbar.scrolled {
+      background-color: #1c3145;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand {
+      color: #ccd9f5;
+    }
+
+    .navbar-brand:hover {
+      color: #f8f9fa !important;
+    }
+
+    .nav-link {
+      color: #ccd9f5ac;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #f8f9fa !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ccd9f5ac;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #f8f9f3 !important;
+    }
+
+    .navbar-custom.toggled {
+      background-color: rgba(138, 175, 210, 0.9) !important;
+    }
+
+    .navbar-light .navbar-toggler {
+      background-color: #eff1f45e !important;
+      border-color: #b2bdc869 !important;
+    }
+
+    .home {
+      height: calc(100vh - 60px);
+      height: 100vh;
+      background-color: #172634;
+    }
+
+    .home h1 {
+      color: #ccd9f5;
+    }
+
+    .home p {
+      color: #8794ad;
+    }
+
+    .btn-circle {
+      width: 40px;
+      height: 40px;
+    }
+
+    .btn-main {
+      background-color: #344a5e !important;
+      color: #cbd1e0 !important;
+      padding: 15px 30px;
+      border-radius: 30px;
+    }
+
+    .btn-main:hover {
+      background-color: #9a9da1 !important;
+      color: #f8f9fa !important;
+    }
+
+    .btn-primary {
+      background-color: #344a5e !important;
+      color: #cbd1e0 !important;
+      border-color: transparent;
+    }
+
+    .btn-primary:hover {
+      background-color: #9a9da1 !important;
+      color: #f8f9fa !important;
+    }
+
+    .list-group-item:hover {
+      background-color: #255684 !important;
+    }
+
+    .modal-backdrop {
+      background-color: rgb(8, 20, 33);
+    }
+
+    .modal-footer .btn:hover {
+      background-color: #255684 !important;
+      color: #ccd9f5 !important;
+    }
+
+    .socialLinks {
+      position: fixed;
+      z-index: 1000;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .list-group-item.list-group-item {
+      border-top-width: 1px;
+    }
+
+    @media (max-width: 550px) {
+      .btn-main {
+        margin-bottom: 10px;
+      }
+
+      .btn-outline-light {
+        margin-bottom: 10px;
+      }
+
+      .home p {
+        font-size: 1rem !important;
+      }
+
+      .container {
+        max-width: 850px;
+      }
+
+    }
+
+    @media (max-width: 980px) {
+      .home p {
+        font-size: 0.9rem !important;
+        text-align: justify;
+      }
+
+      .container {
+        max-width: 900px;
+      }
+
+      .socialLinks {
+        bottom: 10px;
+        transform: translateX(-45%);
+      }
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in-left {
+      animation: slideInLeft 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      display: block;
+      pointer-events: none;
+      animation: none;
+
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeIn 1s ease-out forwards;
+      pointer-events: all;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom w-100 position-fixed">
+    <div class="container py-3">
+      <a class="navbar-brand fw-bold" href="#home">LORAINE.</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item me-2">
+            <a class="nav-link active" href="#home" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#about">About Me</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#education">Education</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#contact" id="contact-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="home fade-in d-flex justify-content-center text-align-center flex-column">
+    <div class="container">
+      <div class="row justify-content-center text-center ">
+        <div class="col-md-8">
+          <h1 class="display-5 slide-in-left  display-sm-5 fw-bold ">Hi, I'm Loraine D.</h1>
+          <p class="pt-2" style="font-size: 18px;">
+            I’m a dedicated IT student and web developer passionate about creating innovative digital solutions. This
+            website showcases my projects and serves educational purposes. Explore below to learn more about me!
+          </p>
+          <div class="container mt-4">
+            <div class="row justify-content-center">
+              <div class="col text-center">
+                <a href="#projects" class="btn btn-main" data-bs-toggle="modal" data-bs-target="#projectsModal">
+                  View Projects
+                </a>
+                <a href="#about" class="btn btn-outline-light"
+                  style="border: 2px solid #cbd1e0; color: #cbd1e0; padding: 15px 30px; border-radius: 30px; font-size: 16px; transition: background-color 0.3s ease, color 0.3s ease;"
+                  onmouseover="this.style.backgroundColor='#cbd1e0'; this.style.color='#172634';"
+                  onmouseout="this.style.backgroundColor='transparent'; this.style.color='#cbd1e0';">
+                  About Loraine
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="socialLinks position-absolute text-align-center">
+      <a href="https://www.facebook.com/deleonloraineeee/" target="_blank"
+        class="btn btn-primary rounded-circle btn-circle p-0 d-inline-flex me-3 align-items-center justify-content-center">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/loraine-de-leon-030952253/" target="_blank"
+        class="btn btn-primary rounded-circle btn-circle p-0 d-inline-flex me-3 align-items-center justify-content-center">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/loriiqw" target="_blank"
+        class="btn btn-primary rounded-circle btn-circle p-0 d-inline-flex me-3 align-items-center justify-content-center">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Modal for Activity List -->
+  <div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="projectsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: #1c3247; border-radius: 15px; border: none;">
+        <div class="modal-header" style="border-bottom: 1px solid #e5eff8;">
+          <h5 class="modal-title" id="projectsModalLabel" style="color: #ccd9f5;">Choose the Activity</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group">
+            <a href="https://simplebooklet.com/deleon_brochure" target="_blank"
+              class="list-group-item list-group-item-action my-2"
+              style="background-color: #1f304200; color: #cbd1e0; border-radius: 10px; ; transition: background-color 0.3s ease;">
+              Activity One - Brochure
+            </a>
+            <a href="https://loriiqw.github.io/Discover%20Talisay/" target="_blank"
+              class="list-group-item list-group-item-action my-2"
+              style="background-color: #1f304200; color: #cbd1e0; border-radius: 10px; ; transition: background-color 0.3s ease;">
+              Activity Two - Discover Talisay Page
+            </a>
+            <a href="https://loriiqw.github.io/" target="_blank" class="list-group-item list-group-item-action my-2"
+              style="background-color: #36577a00; color: #cbd1e0; border-radius: 10px;  transition: background-color 0.3s ease;">
+              Activity Three - My Portfolio
+            </a>
+            <a href="https://loriiqw.github.io/API/index.html" target="_blank"
+              class="list-group-item list-group-item-action my-2"
+              style="background-color: #36577a00; color: #cbd1e0; border-radius: 10px; transition: background-color 0.3s ease;">
+              Activity Four - API with JSON return
+            </a>
+            <a href="https://loriiqw.github.io/Music/index.html" target="_blank"
+              class="list-group-item list-group-item-action my-2"
+              style="background-color: #36577a00; color: #cbd1e0; border-radius: 10px; transition: background-color 0.3s ease;">
+              Midterm P1 - Video Integration
+            </a>
+            <a href="404.html" target="_blank"
+              class="list-group-item list-group-item-action my-2"
+              style="background-color: #36577a00; color: #cbd1e0; border-radius: 10px; transition: background-color 0.3s ease;">
+              Midterm P3 - Error 404
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #a8bbcf;">
+          <button type="button" class="btn btn-main" data-bs-dismiss="modal"
+            style="background-color: #36577a; color: #36577a; border-radius: 20px; padding: 10px 15px;"
+            onmouseover="this.style.backgroundColor='#9a9da1'; this.style.color='#172634';"
+            onmouseout="this.style.backgroundColor='#36577a'; this.style.color='#36577a';">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="py-5 fade-in" style="background-color: #1c2e3e;">
+    <div class="container py-5">
+      <div class="row align-items-center py-1">
+        <div class="col-lg-6 text-center" style="padding: 20px;">
+          <img
+            src="https://raw.githubusercontent.com/loriiqw/loriiqw.github.io/refs/heads/main/img/BSIT%201-1%20DE%20LEON%2C%20LORAINE%20G%20(2).jpg"
+            alt="Profile Photo" class="rounded-circle mb-3 img-fluid"
+            style="max-width: 250px; height: auto; object-fit: cover; border: 3px solid #8794ad;">
+          <h3 class="fw-bold" style="color: #ccd9f5;">Loraine De Leon</h3>
+          <p style="color: #e5e7ed;">IT Student | Front-End Developer</p>
+        </div>
+        <div class="col-lg-6">
+          <p class="my-4" style="color: #cbd1e0; line-height: 1.5; text-align: justify;">
+            Hi, I’m Loraine De Leon, a 22-year-old IT student at the Polytechnic University of the Philippines (PUP).
+            I have a deep passion for web development and technology. I thrive on creating innovative,
+            user-friendly digital solutions that transform ideas into reality.
+          </p>
+          <h4 class="fw-bold" style="color: #ccd9f5;">Skills</h4>
+          <hr class="mb-4" style="width: 60px; height: 3px; background-color: #cbd1e0; border: none;">
+          <div class="mb-3">
+            <h6 style="color: #cbd1e0;">HTML & CSS</h6>
+            <div class="progress" style="height: 8px; background-color: #344a5e;">
+              <div class="progress-bar" role="progressbar" style="width: 90%; background-color: #8794ad;"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <h6 style="color: #cbd1e0;">JavaScript</h6>
+            <div class="progress" style="height: 8px; background-color: #344a5e;">
+              <div class="progress-bar" role="progressbar" style="width: 60%; background-color: #8794ad;"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <h6 style="color: #cbd1e0;">Bootstrap</h6>
+            <div class="progress" style="height: 8px; background-color: #344a5e;">
+              <div class="progress-bar" role="progressbar" style="width: 70%; background-color: #8794ad;"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <h6 style="color: #cbd1e0;">UI/UX Design</h6>
+            <div class="progress" style="height: 8px; background-color: #344a5e;">
+              <div class="progress-bar" role="progressbar" style="width: 85%; background-color: #8794ad;"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <h6 style="color: #cbd1e0;">Basic Graphic Design</h6>
+            <div class="progress" style="height: 8px; background-color: #344a5e;">
+              <div class="progress-bar" role="progressbar" style="width: 70%; background-color: #8794ad;"></div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="https://raw.githubusercontent.com/loriiqw/loriiqw.github.io/refs/heads/main/img/Loraine_resume.png"
+              class="btn btn-main"
+              style="padding: 10px 30px; background-color: #344a5e; color: #cbd1e0; border-radius: 30px; transition: background-color 0.3s;"
+              onmouseover="this.style.backgroundColor='#cbd1e0'; this.style.color='#172634';"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#cbd1e0';" target="_blank"
+              rel="noopener noreferrer">
+              View Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="py-5 fade-in" style="background-color: #182a3b;">
+    <div class="container py-5 h-100 ">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold slide-in-left" style="color: #ccd9f5;">Education</h2>
+        <hr class="mx-auto" style="width: 60px; height: 3px; background-color: #cbd1e0; border: none;">
+      </div>
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="card" style="background-color: #20374d; border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #ccd9f5;">Polytechnic University of the Philippines</h5>
+              <p class="card-text" style="color: #cbd1e0;">Bachelor of Science in Information Technology</p>
+              <p class="card-text" style="color: #8794ad;">2021 - Present</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div class="card" style="background-color: #20374d; border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #ccd9f5;">San Guillermo Academy</h5>
+              <p class="card-text" style="color: #cbd1e0;">Science, Technology, Engineering, and Mathematics (STEM)</p>
+              <p class="card-text" style="color: #8794ad;">2018 - 2021</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div class="card" style="background-color: #20374d; border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #ccd9f5;">San Guillermo Academy</h5>
+              <p class="card-text" style="color: #cbd1e0;">Junior High School</p>
+              <p class="card-text" style="color: #8794ad;">2015 - 2018</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div class="card" style="background-color: #20374d; border-radius: 10px;">
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #ccd9f5;">Dona Maria Laurel Platon Memorial School</h5>
+              <p class="card-text" style="color: #cbd1e0;">Elementary</p>
+              <p class="card-text" style="color: #8794ad;">2009 - 2015</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5 fade-in" style="background-color: #182a3bfa;">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold" style="color: #ccd9f5;">Contact Me</h2>
+        <hr class="mx-auto" style="width: 60px; height: 3px; background-color: #cbd1e0; border: none;">
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 text-justify mb-4 mb-lg-0">
+          <h4 class="fw-bold mb-4" style="color: #ccd9f5;">Contact Details</h4>
+          <p class=" fs-6" style="color: #cbd1e0;">
+            I would be pleased to connect with you. Please feel free to contact me via the details provided below, and I
+            will respond promptly.
+          </p>
+          <div class="contact-info">
+            <div class="mb-3">
+              <i class="fas fa-phone-alt" style="color: #cbd1e0;"></i>
+              <p class="d-inline-block fs-6 fw-bold" style="color: #cbd1e0;">09672810362</p>
+            </div>
+            <div class="mb-3">
+              <i class="fas fa-envelope" style="color: #cbd1e0;"></i>
+              <p class="d-inline-block fs-6 fw-bold" style="color: #cbd1e0;">lorainedeleonn@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <h4 class="fw-bold" style="color: #ccd9f5;">Send a Message</h4>
+          <form action="mailto:lorainedeleonn@gmail.com" method="post" enctype="text/plain" class="my-4">
+            <div class="mb-3">
+              <input type="text" class="form-control text-light " placeholder="Your Name" required
+                style="background-color: #2a3d55; color: #ccd9f5; border: 1px solid #cbd1e0;">
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control text-light" placeholder="Your Email" required
+                style="background-color: #2a3d55; color: #ccd9f5; border: 1px solid #cbd1e0;">
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control text-light" placeholder="Your Message" rows="4" required
+                style="background-color: #2a3d55; color: #ccd9f5; border: 1px solid #cbd1e0;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"
+              style="background-color: #4b6a7b; border: none; color: #ccd9f5;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-3 " style="background-color: #172634; color: #ccd9f5;">
+    <p>&copy; 2024 Loraine D. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  <script>
+    //toggle
+    const navbar = document.getElementById('navbar');
+    const toggleButton = document.querySelector('.navbar-toggler');
+
+    toggleButton.addEventListener('click', () => {
+      navbar.classList.toggle('toggled');
+    });
+    //navbar-scrolled background-color
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    //activelink
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.navbar-nav a');
+
+      let currentSection = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(currentSection)) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const sections = document.querySelectorAll('.fade-in');
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+
+</html>
