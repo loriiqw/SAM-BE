@@ -537,7 +537,7 @@
     <div class="w3-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
     
         <!-- Title and Description -->
-        <div style="text-align: center; width: 100%; margin-bottom: 40px;">
+        <div style="text-align: center; width: 100%; margin-bottom: 20px;">
             <h1 style="font-size: 36px; font-weight: 700; color: #fff;">My Loved Ones</h1>
             <p style="font-size: 18px; color: #fff; margin-top: 10px; line-height: 1.5;">
                 A tribute to those who fill my heart with love and warmth.
