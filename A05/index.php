@@ -247,7 +247,7 @@
 
   <header class="w3-display-container w3-wide" id="home">
     <video id="background-video" muted loop>
-      <source src="De Leon, Loraine G.mov" type="video/mp4">
+      <source src="vid.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="home-content">
@@ -530,10 +530,8 @@
             echo "<p>No content found for competitors.</p>";
         }
         ?>
-
     </div>
 </section>
-
 
 <section style="background-image: url('img/lovbg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 64px 32px;">
     <div class="w3-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
@@ -545,7 +543,6 @@
                 A tribute to those who fill my heart with love and warmth.
             </p>
         </div>
-
 
         <?php
         $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID = 7");
@@ -581,10 +578,7 @@
         <div class="w3-card-4 w3-margin w3-round" style="max-width: 300px; background-color: rgba(255, 255, 255, 0.85); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); overflow: hidden;">
             <img src="<?php echo $imagePath; ?>" alt="Competitor 3" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0;">
         </div>
-
     </div>
-
-
 
     <div class="w3-center w3-padding-32">
       <div class="w3-card-4 w3-padding-32"
