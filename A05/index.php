@@ -1,3 +1,9 @@
+<?php 
+  include("connect.php");  // Connect to the database
+  // Query to fetch personality data
+  $query = "SELECT * FROM islandsofpersonality";
+  $result = executeQuery($query); // Execute the query
+?>
 <!DOCTYPE html>
 <html>
 
@@ -199,22 +205,20 @@
     }
   </style>
 
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark"
-    style="background-color: #3B4F76; color: #fff; position: sticky; top: 0; z-index: 10;">
+<body>
+
+  
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #3B4F76; color: #fff; position: sticky; top: 0; z-index: 10;">
     <div class="container">
       <a class="navbar-brand fs-4 fw-semibold p-3" href="#home" style="color: #fff;">Inside Out</a>
 
-      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="color: #fff;"></span>
       </button>
 
-      <div class="offcanvas offcanvas-end" id="offcanvasNavbar" tabindex="-1" aria-labelledby="offcanvasNavbarLabel"
-        style="background-color: #3B4F76;">
-
+      <div class="offcanvas offcanvas-end" id="offcanvasNavbar" tabindex="-1" aria-labelledby="offcanvasNavbarLabel" style="background-color: #3B4F76;">
         <div class="offcanvas-header">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body text-white">
           <ul class="navbar-nav pe-3 justify-content-end text-sm-center flex-grow-1">
@@ -232,6 +236,8 @@
       </div>
     </div>
   </nav>
+
+
 
   <header class="w3-display-container w3-wide" id="home">
     <video id="background-video" muted loop>
@@ -300,18 +306,36 @@
   <section id="personalities" class="w3-container w3-padding-64" style="background-color: #f4f4f4;">
     <h1 class="w3-center w3-text-white" style="padding-bottom: 30px;">Four Islands of Personality</h1>
     <div class="w3-row personality-row">
+        <?php
+        // Assuming you have a query already executed to get $result
+        // Example: $result = executeQuery("SELECT * FROM islandsofpersonality");
 
-      <div class="personality-card">
-        <div class="w3-card-4 w3-round-large">
-          <img src="img/joy.png" alt="Optimist" class="floating-img">
-          <div class="w3-container w3-padding-16" style="background-color: #FFEB3B; text-align: center;">
-            <h3>The Optimist</h3>
-            <p style="margin-bottom: 20px;">Loraine's optimism is her superpower. Like Joy, she radiates positivity and
-              finds the best in every situation.</p>
-          </div>
-        </div>
-      </div>
+        // Check if there are results
+        if ($result->num_rows > 0) {
+            // Loop through each personality and display it
+            while ($row = $result->fetch_assoc()) {
+                // Dynamically echo personality name, description, and image based on data
+                echo "
+                <div class='personality-card'>
+                    <div class='w3-card-4 w3-round-large'>
+                        <img src='img/{$row['image']}.jpg'class='floating-img'> <!-- Dynamically display image -->
+                        <div class='w3-container w3-padding-16' style='background-color: {$row['color']}; text-align: center;'>
+                            <h3>" . htmlspecialchars($row['name']) . "</h3> <!-- Display personality name -->
+                            <p style='margin-bottom: 20px;'>" . htmlspecialchars($row['longDescription']) . "</p> <!-- Display long description -->
+                        </div>
+                    </div>
+                </div>";
+            }
+        } else {
+            echo "<p>No personalities found.</p>";
+        }
+        ?>
+    </div> <!-- Close personality-row div -->
+</section> <!-- Close the section -->
 
+
+
+<!---
       <div class="personality-card">
         <div class="w3-card-4 w3-round-large">
           <img src="img/d1.jpg" alt="Thoughtful Explorer" class="floating-img">
@@ -347,6 +371,7 @@
 
     </div>
   </section>
+   -->
 
   <section id="optimist" class="w3-container w3-padding-64">
     <div class="w3-center" style="margin-bottom: 40px;">
@@ -397,6 +422,7 @@
       </div>
     </div>
   </section>
+  
 
   <section id="traveler" class="w3-container"
     style="background-image: url('img/travelbg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFFFFF;">
