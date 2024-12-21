@@ -307,21 +307,16 @@
     <h1 class="w3-center w3-text-white" style="padding-bottom: 30px;">Four Islands of Personality</h1>
     <div class="w3-row personality-row">
         <?php
-        // Assuming you have a query already executed to get $result
-        // Example: $result = executeQuery("SELECT * FROM islandsofpersonality");
-
-        // Check if there are results
+        
         if ($result->num_rows > 0) {
-            // Loop through each personality and display it
             while ($row = $result->fetch_assoc()) {
-                // Dynamically echo personality name, description, and image based on data
                 echo "
                 <div class='personality-card'>
                     <div class='w3-card-4 w3-round-large'>
                         <img src='img/{$row['image']}.jpg'class='floating-img'> <!-- Dynamically display image -->
                         <div class='w3-container w3-padding-16' style='background-color: {$row['color']}; text-align: center;'>
-                            <h3>" . htmlspecialchars($row['name']) . "</h3> <!-- Display personality name -->
-                            <p style='margin-bottom: 20px;'>" . htmlspecialchars($row['longDescription']) . "</p> <!-- Display long description -->
+                            <h3>" . htmlspecialchars($row['name']) . "</h3> 
+                            <p style='margin-bottom: 20px;'>" . htmlspecialchars($row['longDescription']) . "</p> 
                         </div>
                     </div>
                 </div>";
@@ -330,10 +325,8 @@
             echo "<p>No personalities found.</p>";
         }
         ?>
-    </div> <!-- Close personality-row div -->
-</section> <!-- Close the section -->
-
-
+    </div>
+</section>
 
 <!---
       <div class="personality-card">
@@ -373,14 +366,21 @@
   </section>
    -->
 
-  <section id="optimist" class="w3-container w3-padding-64">
+   <section id="optimist" class="w3-container w3-padding-64">
     <div class="w3-center" style="margin-bottom: 40px;">
-      <h1 style="font-size: 30px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;">Welcome to The Optimistic
-        Island
-      </h1>
-      <p style="font-size: 18px; color: #7F8C8D; margin-top: 10px;">Description
-      </p>
+        <?php
+        $result = executeQuery("SELECT * FROM islandsofpersonality WHERE islandOfPersonalityID = 1");
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            
+            echo "<h1 style='font-size: 30px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;'>Welcome to " . htmlspecialchars($row['name']) . " Island</h1>";
+        } else {
+            echo "<h1>No personality found with ID 1.</h1>";
+        }
+        ?>
     </div>
+
 
     <div class="w3-row">
       <div class="w3-col l6 s12" style="padding: 0 10px;">
