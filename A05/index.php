@@ -1,9 +1,14 @@
 <?php 
-  include("connect.php");  // Connect to the database
-  // Query to fetch personality data
-  $query = "SELECT * FROM islandsofpersonality";
-  $result = executeQuery($query); // Execute the query
+  include("connect.php"); 
+  
+  $query_personality = "SELECT * FROM islandsofpersonality";
+  $result_personality = executeQuery($query_personality); 
+
+  $query_content = "SELECT * FROM islandcontents";
+  $result_content = executeQuery($query_content); 
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -207,18 +212,22 @@
 
 <body>
 
-  
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #3B4F76; color: #fff; position: sticky; top: 0; z-index: 10;">
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark"
+    style="background-color: #3B4F76; color: #fff; position: sticky; top: 0; z-index: 10;">
     <div class="container">
       <a class="navbar-brand fs-4 fw-semibold p-3" href="#home" style="color: #fff;">Inside Out</a>
 
-      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="color: #fff;"></span>
       </button>
 
-      <div class="offcanvas offcanvas-end" id="offcanvasNavbar" tabindex="-1" aria-labelledby="offcanvasNavbarLabel" style="background-color: #3B4F76;">
+      <div class="offcanvas offcanvas-end" id="offcanvasNavbar" tabindex="-1" aria-labelledby="offcanvasNavbarLabel"
+        style="background-color: #3B4F76;">
         <div class="offcanvas-header">
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
         </div>
         <div class="offcanvas-body text-white">
           <ul class="navbar-nav pe-3 justify-content-end text-sm-center flex-grow-1">
@@ -267,7 +276,7 @@
           </div>
         </div>
 
-        <div class="w3-half" style="padding-left: 40px; max-width: 600px;">
+        <div class="w3-half" style=" padding-top:10px; max-width: 600px;">
           <div class=" w3-round-large" style=" color: #f0f0f0; ">
             <h2 class="w3-large w3-text-shadow" style="margin-bottom: 10px; font-size: 20px;">Loraine: A Journey of Joy
               and Fear</h2>
@@ -306,123 +315,102 @@
   <section id="personalities" class="w3-container w3-padding-64" style="background-color: #f4f4f4;">
     <h1 class="w3-center w3-text-white" style="padding-bottom: 30px;">Four Islands of Personality</h1>
     <div class="w3-row personality-row">
-        <?php
-        
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "
-                <div class='personality-card'>
-                    <div class='w3-card-4 w3-round-large'>
-                        <img src='img/{$row['image']}.jpg'class='floating-img'> <!-- Dynamically display image -->
-                        <div class='w3-container w3-padding-16' style='background-color: {$row['color']}; text-align: center;'>
-                            <h3>" . htmlspecialchars($row['name']) . "</h3> 
-                            <p style='margin-bottom: 20px;'>" . htmlspecialchars($row['longDescription']) . "</p> 
+      <?php
+        $query = "SELECT * FROM islandsofpersonality";
+
+        $result = executeQuery($query);
+
+        if ($result) {
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "
+                    <div class='personality-card'>
+                        <div class='w3-card-4 w3-round-large'>
+                            <img src='{$row['image']}' class='floating-img' alt='{$row['image']}'> <!-- Dynamically display image -->
+                            <div class='w3-container w3-padding-16' style='background-color: {$row['color']}; text-align: center;'>
+                                <h3 style='font-size: 20px; padding-bottom:10px'>" . htmlspecialchars($row['name']) . "</h3> 
+                                <p style='margin-bottom: 20px;'>" . htmlspecialchars($row['longDescription']) . "</p>
+                            </div>
                         </div>
-                    </div>
-                </div>";
+                    </div>";
+                }
+            } else {
+                echo "<p>No personalities found.</p>";
             }
         } else {
-            echo "<p>No personalities found.</p>";
+            echo "<p>Error executing query: " . $conn->error . "</p>";
+        }
+        ?>
+    </div>
+  </section>
+
+  <section id="optimist" class="w3-container w3-padding-64">
+    <div class="w3-center" style="margin-bottom: 40px; color: grey;">
+        <h1 style="font-size: 30px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;">
+            Welcome to The Optimistic Island
+        </h1>
+
+        <?php
+        $result = executeQuery("SELECT * FROM islandcontents WHERE islandContentID IN (1, 2, 3, 13)");
+
+        if ($result && $result->num_rows > 0) {
+            $counter = 0;
+            
+            while ($row = $result->fetch_assoc()) {
+                if ($counter % 2 == 0) {
+                    echo "<div class='w3-row' style='margin-top: 40px;'>";
+                }
+
+                $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/default.jpg';
+                $title = '';
+                $description = '';
+
+                switch ($row['islandContentID']) {
+                    case 1:
+                        $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/joy11.jpg';
+                        $title = 'Radiating Positivity';
+                        break;
+                    case 2:
+                        $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/joy12.jpg';
+                        $title = 'The Power to Transform Challenges';
+                        break;
+                    case 3:
+                        $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/joy13.jpg';
+                        $title = 'Optimism in Action';
+                        break;
+                    case 13:
+                        $imagePath = isset($row['image_path']) ? $row['image_path'] : 'img/op2.jpg';
+                        $title = 'Embracing the Bright Side';
+                        break;
+                }
+
+                echo "
+                    <div class='w3-col l6 s12' style='padding: 0 10px; text-align: center;'>
+                        <div class='card'>
+                            <img src='" . htmlspecialchars($imagePath) . "' alt='Optimism' class='card-img'>
+                            <div class='card-body'>
+                                <h3 style='font-size: 22px; color: #2C3E50; font-weight: 600;'>$title</h3>
+                                <p style='font-size: 16px; color: #34495E; line-height: 1.6;'>" . htmlspecialchars($row['content']) . "</p>
+                            </div>
+                        </div>
+                    </div>";
+
+                $counter++;
+
+                if ($counter % 2 == 0) {
+                    echo "</div>"; 
+                }
+            }
+
+            if ($counter % 2 != 0) {
+                echo "</div>"; 
+            }
+        } else {
+            echo "<h1>No content found for Island Content IDs 1, 2, and 3.</h1>";
         }
         ?>
     </div>
 </section>
-
-<!---
-      <div class="personality-card">
-        <div class="w3-card-4 w3-round-large">
-          <img src="img/d1.jpg" alt="Thoughtful Explorer" class="floating-img">
-          <div class="w3-container w3-padding-16" style="background-color: #FFCDD2; text-align: center;">
-            <h3>Thoughtful Explorer</h3>
-            <p style="margin-bottom: 20px;">The Explorer within her loves trying new things, whether it’s traveling to
-              new places, meeting new people, or diving into different hobbies.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="personality-card">
-        <div class="w3-card-4 w3-round-large">
-          <img src="img/joy.png" alt="Competitor" class="floating-img">
-          <div class="w3-container w3-padding-16" style="background-color: #B2DFDB;text-align: center;">
-            <h3>The Competitor</h3>
-            <p style="margin-bottom: 20px;">Loraine have a strong desire to win and would be highly driven to achieve
-              her goals, both individually and as part of a team. </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="personality-card">
-        <div class="w3-card-4 w3-round-large">
-          <img src="img/saddd.jpg" alt="Loving Sou" class="floating-img">
-          <div class="w3-container w3-padding-16" style="background-color: #e9a2e6; text-align: center;">
-            <h3>Loving Soul</h3>
-            <p style="margin-bottom: 20px;">Loraine is loving, offering kindness and warmth to everyone around her,
-              always ready to listen and provide support.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-   -->
-
-   <section id="optimist" class="w3-container w3-padding-64">
-    <div class="w3-center" style="margin-bottom: 40px;">
-        <?php
-        $result = executeQuery("SELECT * FROM islandsofpersonality WHERE islandOfPersonalityID = 1");
-
-        if ($result && $result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            
-            echo "<h1 style='font-size: 30px; font-weight: 700; color: #2C3E50; letter-spacing: 2px;'>Welcome to " . htmlspecialchars($row['name']) . " Island</h1>";
-        } else {
-            echo "<h1>No personality found with ID 1.</h1>";
-        }
-        ?>
-    </div>
-
-
-    <div class="w3-row">
-      <div class="w3-col l6 s12" style="padding: 0 10px;">
-        <div class="card">
-          <img src="img/joy11.jpg" alt="Optimism" class="card-img">
-          <div class="card-body">
-            <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
-            <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Loraine’s optimism is contagious. Like Joy
-              from *Inside Out*, she radiates positivity, always finding a way to uplift those around her with every
-              challenge.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-col l6 s12" style="padding: 0 10px;">
-        <div class="card">
-          <img src="img/op2.jpg" alt="Optimism" class="card-img">
-          <div class="card-body">
-            <h3 style="font-size: 22px; color: #2C3E50; font-weight: 600;">Optimism: A Superpower</h3>
-            <p style="font-size: 16px; color: #34495E; line-height: 1.6;">Her ability to see the bright side in any
-              situation brings joy to others. She teaches us that with the right mindset, every setback can turn into an
-              opportunity.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w3-container" style="padding: 20px; margin-top: 20px;">
-      <div
-        style="max-width: 800px; margin: 0 auto; background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); padding: 20px;">
-        <p style="font-size: 18px; color: #2C3E50; line-height: 1.8; text-align: center;">
-          “Loraine’s optimism is truly inspiring. She has this rare ability to see the good in every challenge, turning
-          obstacles into opportunities. Her positivity is contagious and uplifts everyone around her, making her a
-          source of light in any situation.”
-        </p>
-        <p style="font-size: 16px; color: #7F8C8D; text-align: center; margin-top: 10px;">
-          - Reina Cabrera (Loraine's Friend)
-        </p>
-      </div>
-    </div>
-  </section>
-  
 
   <section id="traveler" class="w3-container"
     style="background-image: url('img/travelbg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFFFFF;">
@@ -608,8 +596,9 @@
         video.style.visibility = "hidden";
       }
     }
+  
   </script>
 
-  </body>
+</body>
 
 </html>
