@@ -277,14 +277,14 @@
           <div class=" w3-round-large" style=" color: #f0f0f0; ">
             <h2 class="w3-large w3-text-shadow" style="margin-bottom: 10px; font-size: 20px;">Loraine: A Journey of Joy
               and Fear</h2>
-            <p style="text-align: justify; line-height: 1.7; font-size: 14px;">
+            <p style="text-align: justify; line-height: 1.7; font-size: 15px;">
               Loraine is like Joy from the Inside Out—always bubbling with energy and ready to make others smile. Her
               infectious sense of humor and optimistic outlook light up any room she walks into. Whether it’s cracking
               jokes or sharing a funny story, Loraine has the unique ability to turn everyday moments into something
               special. Her laughter is a reminder that life is too short to take too seriously, and that joy can be
               found even in the smallest things.
             </p>
-            <p style="text-align: justify; line-height: 1.7; font-size: 14px;">
+            <p style="text-align: justify; line-height: 1.7; font-size: 15px;">
               But beneath the laughter and lightheartedness, there's a side of Loraine that mirrors the emotion of Fear.
               It's not the kind of fear that’s obvious to everyone, but more of a quiet, internal one. She sometimes
               feels an apprehension—an anxiety over how she’s perceived and the judgment of others. It's a vulnerability
