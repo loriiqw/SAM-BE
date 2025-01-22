@@ -49,7 +49,6 @@ $result = $conn->query($sql);
       transition: background-color 0.3s ease-in-out;
     }
 
-    /* Athlete Section */
     #athleteSection {
       background-color: #f8f9fa;
       padding: 60px 0;
@@ -59,27 +58,8 @@ $result = $conn->query($sql);
       max-width: 1300px;
     }
 
-    #athleteSection h2::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background-color: #007bff;
-      /* Blue underline */
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform 0.3s ease-out;
-    }
+  
 
-    #athleteSection h2:hover::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-
-
-    /* Card Styling */
     .card {
       border: none;
       border-radius: 10px;
@@ -103,7 +83,6 @@ $result = $conn->query($sql);
 
     .card img:hover {
       transform: scale(1.05);
-      /* Zoom effect on hover */
     }
 
     .card-body {
@@ -139,7 +118,6 @@ $result = $conn->query($sql);
       background-color: #0056b3;
     }
 
-    /* Responsive Adjustments */
     @media (max-width: 767px) {
       .card-body {
         padding: 15px;
@@ -194,68 +172,91 @@ $result = $conn->query($sql);
   <section id="homeSection" class="d-flex align-items-center justify-content-center text-center text-white"
     style="background: url('img/Group\ 5.png') no-repeat center center; background-size: cover; height: 100vh;">
     <div>
-      <h1 class="display-3" style="color: #f9e155;">Celebrate Excellence. Inspire Generations.</h1>
-      <p class="lead">The Spirit of the Games Lives On!</p>
+      <h1 class="display-3" style="color: #f9e155;">Olympics 2024: A Legacy of Excellence</h1>
+      <p class="lead">Celebrating the Spirit of the Games and Inspiring Generations</p>
     </div>
   </section>
 
   <section id="athleteSection" class="py-6 bg-light">
-    <div class="container">
-      <h2 class="text-center text-primary mb-4 pt-1 font-weight-bold text-uppercase custom-heading"
-        style="font-size: 2.3rem; position: relative; border-bottom: 3px solid #007bff;">
-        Featured Athletes
-      </h2>
+  <div class="container">
+    <h2 class="text-center text-primary mb-4 pt-1 font-weight-bold text-uppercase custom-heading" style="font-size: 2.3rem;">
+      Featured Athletes
+    </h2>
 
-      <div id="athleteList" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-        <?php
-                $conn = new mysqli("localhost", "root", "", "olympics");
+    <div id="athleteList" class="mt-4 row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <?php
+        $conn = new mysqli("localhost", "root", "", "olympics");
 
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                
-                $sql = "SELECT name, description, image FROM athletes LIMIT 4"; 
-                $result = $conn->query($sql);
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
 
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        $imagePath = htmlspecialchars($row["image"]);  
-                        echo "<div class='col'>";
-                        echo "<div class='card h-100'>";
-                        echo "<img src='/SAM-BE/F01/" . $imagePath . "' class='card-img-top' alt='Athlete Image'>";
-                        echo "<div class='card-body text-center'>";
-                        echo "<h5 class='card-title text-primary'>" . htmlspecialchars($row["name"]) . "</h5>"; 
-                        echo "<p class='card-text text-muted'>" . htmlspecialchars($row["description"]) . "</p>"; 
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-                    }
-                } else {
-                    echo "<p class='text-center'>No athletes found</p>"; 
-                }
+        $sql = "SELECT name, description, image FROM athletes LIMIT 4"; 
+        $result = $conn->query($sql);
 
-                $conn->close();
-            ?>
-      </div>
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+            $imagePath = htmlspecialchars($row["image"]);  
+            echo "<div class='col'>";
+            echo "<div class='card h-100'>";
+            echo "<img src='/SAM-BE/F01/" . $imagePath . "' class='card-img-top' alt='Athlete Image'>";
+            echo "<div class='card-body text-center'>";
+            echo "<h5 class='card-title text-primary'>" . htmlspecialchars($row["name"]) . "</h5>"; 
+            echo "<p class='card-text text-muted'>" . htmlspecialchars($row["description"]) . "</p>"; 
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+          }
+        } else {
+          echo "<p class='text-center'>No athletes found</p>"; 
+        }
 
-      <div class="text-center mt-4">
-        <a href="#" id="loadMoreBtn" class="btn btn-primary">See All Athletes</a>
-      </div>
+        $conn->close();
+      ?>
     </div>
-  </section>
 
-  <script>
-    document.getElementById('loadMoreBtn').addEventListener('click', function (event) {
-      event.preventDefault();
+    <div class="text-center mt-5">
+      <a href="#" id="loadMoreBtn" class="btn btn-primary">See All Athletes</a>
+    </div>
+  </div>
+</section>
 
-      fetch('loadmore.php')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('athleteList').innerHTML += data;
-        })
-        .catch(error => console.error('Error loading more athletes:', error));
-    });
-  </script>
+<script>
+  let offset = 4;
+
+  document.getElementById('loadMoreBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    fetch('loadmore.php?offset=' + offset)
+      .then(response => response.json())
+      .then(data => {
+        if (data.athletes.length > 0) {
+          data.athletes.forEach(athlete => {
+            let athleteHtml = `
+              <div class='col'>
+                <div class='card h-100'>
+                  <img src='/SAM-BE/F01/${athlete.image}' class='card-img-top' alt='Athlete Image'>
+                  <div class='card-body text-center'>
+                    <h5 class='card-title text-primary'>${athlete.name}</h5>
+                    <p class='card-text text-muted'>${athlete.description}</p>
+                  </div>
+                </div>
+              </div>
+            `;
+            document.getElementById('athleteList').innerHTML += athleteHtml;
+          });
+          offset += data.athletes.length; 
+        }
+
+        if (!data.moreAthletes) {
+          const loadMoreButton = document.getElementById('loadMoreBtn');
+          loadMoreButton.textContent = 'No more athletes';
+          loadMoreButton.disabled = true; 
+        }
+      })
+      .catch(error => console.error('Error loading more athletes:', error));
+  });
+</script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -270,6 +271,7 @@ $result = $conn->query($sql);
       }
     });
   </script>
+  
 </body>
 
 </html>
