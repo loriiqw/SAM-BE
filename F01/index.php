@@ -15,6 +15,7 @@ $result = $conn->query($sql);
   <title>Royal Court 2024</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
       font-family: 'Olympic Sans', Arial, sans-serif;
@@ -205,104 +206,105 @@ $result = $conn->query($sql);
       }
     }
 
-#medalSection {
-  padding: 40px 0;
-  background-color:rgb(240, 236, 236); 
-}
+    #medalSection {
+      padding: 40px 0;
+      background-color: rgb(240, 236, 236);
+    }
 
 
-.table-container {
-  max-width: 90%; 
-  margin: 0 auto;
-  overflow-x: auto;
-}
+    .table-container {
+      max-width: 90%;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
 
-.medal-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 15px; 
-  border-radius: 12px; 
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
+    .medal-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 15px;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
 
-.medal-table th {
-  padding: 14px 20px; 
-  text-align: center;
-  font-size: 1.1rem;
-  background-color: #ffce00; 
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-top-left-radius: 12px; 
-  border-top-right-radius: 12px;
-  border-bottom: 2px solid #f0f0f0; 
-}
+    .medal-table th {
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 1.1rem;
+      background-color: #ffce00;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      border-bottom: 2px solid #f0f0f0;
+    }
 
-.medal-table td {
-  padding: 14px 20px;
-  text-align: center; 
-  font-size: 1rem;
-  border-bottom: 1px solid #f0f0f0; 
-  font-family: 'Poppins', sans-serif; 
-  transition: background-color 0.3s ease; 
-  background-color: #fff;
-}
+    .medal-table td {
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease;
+      background-color: #fff;
+    }
 
-.medal-table tr:hover {
-  background-color: #f1f1f1;
-}
+    .medal-table tr:hover {
+      background-color: #f1f1f1;
+    }
 
-.medal-table .flag-icon {
-  width: 30px;
-  height: auto;
-  margin-right: 10px;
-  border-radius: 50%; 
-}
+    .medal-table .flag-icon {
+      width: 30px;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
 
-.medal-table .fas {
-  margin-right: 8px;
-  font-size: 1.1rem; 
-}
+    .medal-table .fas {
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
 
-.medal-table .gold {
-  color: gold;
-}
+    .medal-table .gold {
+      color: gold;
+    }
 
-.medal-table .silver {
-  color: silver;
-}
+    .medal-table .silver {
+      color: silver;
+    }
 
-.medal-table .bronze {
-  color: #cd7f32;
-}
+    .medal-table .bronze {
+      color: #cd7f32;
+    }
 
-.medal-table td, .medal-table th {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  font-size: 16px;
-}
+    .medal-table td,
+    .medal-table th {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
-.medal-table td {
-  font-weight: 400;
-}
+    .medal-table td {
+      font-weight: 400;
+    }
 
-.medal-table th {
-  font-weight: 600;
-  text-align: center; 
-}
-
-
-@media (max-width: 768px) {
-  .medal-table td, .medal-table th {
-    font-size: 14px;
-  }
-
-  .medal-table .flag-icon {
-    width: 24px; 
-  }
-}
+    .medal-table th {
+      font-weight: 600;
+      text-align: center;
+    }
 
 
+    @media (max-width: 768px) {
+
+      .medal-table td,
+      .medal-table th {
+        font-size: 14px;
+      }
+
+      .medal-table .flag-icon {
+        width: 24px;
+      }
+    }
   </style>
 </head>
 
@@ -337,16 +339,22 @@ $result = $conn->query($sql);
               <a class="nav-link text-white" href="#athleteSection" aria-label="Go to Athlete Section">Athlete</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link text-white" href="#legacySection" aria-label="Go to Olympic Legacy Section">Olympic
-                Legacy</a>
-            </li>
-            <li class="nav-item mx-2">
               <a class="nav-link text-white" href="#medalsSection" aria-label="Go to Medals Section">Medals</a>
             </li>
             <li class="nav-item mx-2">
               <a class="nav-link text-white" href="#storySection" aria-label="Go to Olympic Story Section">Olympic
                 Story</a>
             </li>
+            <li class="nav-item mx-2 dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="login.php">Logout</a></li>
+              </ul>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -441,26 +449,26 @@ $result = $conn->query($sql);
         .catch(error => console.error('Error loading more athletes:', error));
     });
   </script>
- <section id="medalSection" class="py-6">
-  <div class="container">
-    <h2 class="text-center text-dark mb-4 pt-1 font-weight-bold" style="font-size: 2.1rem; letter-spacing: 1px;">
-      Top 10 Countries by Medal Count
-    </h2>
+  <section id="medalSection" class="py-6">
+    <div class="container">
+      <h2 class="text-center text-dark mb-4 pt-1 font-weight-bold" style="font-size: 2.1rem; letter-spacing: 1px;">
+        Top 10 Countries by Medal Count
+      </h2>
 
-    <div class="table-container">
-      <table class="medal-table">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Country</th>
-            <th>Gold</th>
-            <th>Silver</th>
-            <th>Bronze</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
+      <div class="table-container">
+        <table class="medal-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Country</th>
+              <th>Gold</th>
+              <th>Silver</th>
+              <th>Bronze</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
             $conn = new mysqli("localhost", "root", "", "olympics");
 
             if ($conn->connect_error) {
@@ -500,12 +508,11 @@ $result = $conn->query($sql);
 
             $conn->close();
           ?>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
