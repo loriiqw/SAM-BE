@@ -48,6 +48,107 @@ $result = $conn->query($sql);
       background-color: #333 !important;
       transition: background-color 0.3s ease-in-out;
     }
+
+    /* Athlete Section */
+    #athleteSection {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+    }
+
+    #athleteSection .container {
+      max-width: 1300px;
+    }
+
+    #athleteSection h2::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #007bff;
+      /* Blue underline */
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+
+    #athleteSection h2:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+
+    /* Card Styling */
+    .card {
+      border: none;
+      border-radius: 10px;
+      background-color: #fff;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+      /* Zoom effect on hover */
+    }
+
+    .card-body {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .card-text {
+      text-align: justify;
+      font-size: 0.9rem;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 767px) {
+      .card-body {
+        padding: 15px;
+      }
+
+      .card-title {
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 
@@ -98,46 +199,64 @@ $result = $conn->query($sql);
     </div>
   </section>
 
-  <section id="athleteSection" class="py-5 bg-light">
+  <section id="athleteSection" class="py-6 bg-light">
     <div class="container">
-      <h2 class="text-center text-primary mb-4">Featured Athletes</h2>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <h2 class="text-center text-primary mb-4 pt-1 font-weight-bold text-uppercase custom-heading"
+        style="font-size: 2.3rem; position: relative; border-bottom: 3px solid #007bff;">
+        Featured Athletes
+      </h2>
+
+      <div id="athleteList" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
         <?php
-            $conn = new mysqli("localhost", "root", "", "olympics");
+                $conn = new mysqli("localhost", "root", "", "olympics");
 
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT name, description, image FROM athletes"; 
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $imagePath = htmlspecialchars($row["image"]);  
-                    
-                    echo "<div class='col'>";
-                    echo "<div class='card h-100'>";
-                    echo "<img src='/SAM-BE/F01/" . $imagePath . "' class='card-img-top' alt='Athlete Image'>";
-                    echo "<div class='card-body text-center'>";
-                    echo "<h5 class='card-title text-primary'>" . htmlspecialchars($row["name"]) . "</h5>"; 
-                    echo "<p class='card-text text-muted'>" . htmlspecialchars($row["description"]) . "</p>"; 
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
                 }
-            } else {
-                echo "<p class='text-center'>No athletes found</p>"; 
-            }
+                
+                $sql = "SELECT name, description, image FROM athletes LIMIT 4"; 
+                $result = $conn->query($sql);
 
-            $conn->close();
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $imagePath = htmlspecialchars($row["image"]);  
+                        echo "<div class='col'>";
+                        echo "<div class='card h-100'>";
+                        echo "<img src='/SAM-BE/F01/" . $imagePath . "' class='card-img-top' alt='Athlete Image'>";
+                        echo "<div class='card-body text-center'>";
+                        echo "<h5 class='card-title text-primary'>" . htmlspecialchars($row["name"]) . "</h5>"; 
+                        echo "<p class='card-text text-muted'>" . htmlspecialchars($row["description"]) . "</p>"; 
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "<p class='text-center'>No athletes found</p>"; 
+                }
+
+                $conn->close();
             ?>
       </div>
+
       <div class="text-center mt-4">
-        <a href="#fullAthleteShowcase" class="btn btn-primary">See All Athletes</a>
+        <a href="#" id="loadMoreBtn" class="btn btn-primary">See All Athletes</a>
       </div>
     </div>
   </section>
+
+  <script>
+    document.getElementById('loadMoreBtn').addEventListener('click', function (event) {
+      event.preventDefault();
+
+      fetch('loadmore.php')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('athleteList').innerHTML += data;
+        })
+        .catch(error => console.error('Error loading more athletes:', error));
+    });
+  </script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
