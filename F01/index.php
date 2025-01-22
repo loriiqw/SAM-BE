@@ -443,7 +443,7 @@ $result = $conn->query($sql);
   </script>
  <section id="medalSection" class="py-6">
   <div class="container">
-    <h2 class="text-center text-dark mb-4 pt-1 font-weight-bold" style="font-size: 2.5rem; letter-spacing: 1px;">
+    <h2 class="text-center text-dark mb-4 pt-1 font-weight-bold" style="font-size: 2.1rem; letter-spacing: 1px;">
       Top 10 Countries by Medal Count
     </h2>
 
